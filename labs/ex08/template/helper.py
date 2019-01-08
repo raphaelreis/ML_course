@@ -36,12 +36,15 @@ def load_image(path):
 
 def build_distance_matrix(data, mu):
     """build a distance matrix.
-
-    row of the matrix represents the data point,
-    column of the matrix represents the k-th cluster.
+    return
+        distance matrix:
+            row of the matrix represents the data point,
+            column of the matrix represents the k-th cluster.
     """
     # ***************************************************
     # INSERT YOUR CODE HERE
     # TODO: build distance matrix
     # ***************************************************
-    raise NotImplementedError
+    dists = np.transpose(np.array([[np.linalg.norm(data[i]-mu[k]) 
+                                    for i in range(data.shape[0])] for k in range(mu.shape[0])]))
+    return dists
